@@ -1,0 +1,60 @@
+
+set -o vi
+alias a=alias
+
+a pd=pushd
+a pd2="pushd +2"
+a pd3="pushd +3"
+a pd4="pushd +4"
+a pd5="pushd +5"
+a pd6="pushd +6"
+a pd7="pushd +7"
+a pd8="pushd +8"
+a pd9="pushd +9"
+a pd10="pushd +10"
+a pd11="pushd +11"
+a pd12="pushd +12"
+a pd13="pushd +13"
+a pd14="pushd +14"
+a pd15="pushd +15"
+a pd16="pushd +16"
+a pd17="pushd +17"
+a pd18="pushd +18"
+a pd19="pushd +19"
+
+a d="dirs -v"
+a h=history
+a ls="ls -F --color=auto"
+a md=mkdir
+a src="source ~/.bashrc"
+a x="chmod a+x"
+
+a sudo="sudo "
+
+function xcat {
+  #less -f $(for f in $*; do <(xmlstarlet fo $f); done)
+  xmlstarlet fo $1
+}
+
+function ycat {
+  (echo "<j>"; cat $1; echo "</j>") | xmlstarlet fo
+}
+
+function jcat {
+  cat $1 | python -m json.tool
+}
+
+function xless {
+  xcat $1 | less
+}
+function yless {
+  xcat $1 | less
+}
+function jless {
+  xcat $1 | less
+}
+
+function cdl {
+    cd "$(dirname "$(readlink "$1")")";
+}
+
