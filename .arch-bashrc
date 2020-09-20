@@ -1,0 +1,7 @@
+alias a=alias
+
+a pm=trizen
+a sc=systemctl
+a vi=nvim
+a view="nvim -R"
+
