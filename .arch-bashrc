@@ -2,6 +2,7 @@ alias a=alias
 
 # git test 1
 # git test 2
+# git test 3
 a pm=trizen
 a sc=systemctl
 a vi=nvim
