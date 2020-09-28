@@ -1,3 +1,6 @@
+# Using LESS environ variable breaks git-diff
+#export LESS="-P %f.\: %bt.-%bB.\/%B.\: %lt.-%lb.\/%L"
+#export LESS="-M"
 
 set -o vi
 alias a=alias
@@ -24,9 +27,13 @@ a pd19="pushd +19"
 
 a d="dirs -v"
 a h=history
+a less="less -M"
 a ls="ls -F --color=auto"
 a md=mkdir
 a src="source ~/.bashrc"
+a urldecode='python -c "import urllib, sys; print urllib.unquote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
+a urlencode='python -c "import urllib, sys; print urllib.quote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
+a wget="wget --trust-server-names"
 a x="chmod a+x"
 
 a sudo="sudo "
@@ -44,6 +51,10 @@ function jcat {
   cat $1 | python -m json.tool
 }
 
+function papicat {
+  xcat $1 | sed 's/" /"\n        /g'
+}
+
 function xless {
   xcat $1 | less
 }
@@ -53,8 +64,15 @@ function yless {
 function jless {
   xcat $1 | less
 }
+function papiless {
+  papicat $1 | less
+}
 
 function cdl {
     cd "$(dirname "$(readlink "$1")")";
+}
+
+function ddmmyyy-to-yyyymmdd {
+  cat $1 | sed -r 's.([0-9]{2})/([0-9]{2})/([0-9]{4}).\3-\2-\1.g'
 }
 
