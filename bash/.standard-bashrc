@@ -80,3 +80,10 @@ function killDetachedMosh {
   pids=$(kill $(who | grep mosh | grep -v via | awk '{print $6}' | sed -r 's/[^0-9]//g'))
 }
 
+function checkRoot {
+  if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  else
+    echo "running as root"
+  fi
+}
