@@ -2,6 +2,8 @@
 #export LESS="-P %f.\: %bt.-%bB.\/%B.\: %lt.-%lb.\/%L"
 #export LESS="-M"
 
+export PATH="$PATH:~/bin:."
+
 set -o vi
 alias a=alias
 
