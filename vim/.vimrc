@@ -1,13 +1,13 @@
 syntax on
 colorscheme murphy
-set ruler
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set paste
 set nohlsearch
 set autoindent
+set paste
+set ruler
 
 """""
 
