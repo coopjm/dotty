@@ -1,5 +1,10 @@
-syntax on
+set nocompatible
+"set t_Co=256
 colorscheme murphy
+syntax on
+set cursorline
+hi cursorline cterm=NONE ctermbg=236
+
 set ruler
 set tabstop=2
 set shiftwidth=2
