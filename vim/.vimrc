@@ -12,7 +12,7 @@ set softtabstop=2
 set expandtab
 set paste
 set nohlsearch
-set autoindent
+"set autoindent
 
 """""
 
