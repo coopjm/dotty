@@ -28,6 +28,7 @@ a pd18="pushd +18"
 a pd19="pushd +19"
 
 a d="dirs -v"
+a git-dotty-pull="pushd $HOME/.dotty > /dev/null; git pull; popd > /dev/null"
 a h=history
 a less="less -M"
 a ls="ls -F --color=auto"
