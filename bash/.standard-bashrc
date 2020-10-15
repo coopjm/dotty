@@ -89,3 +89,73 @@ function checkRoot {
     echo "running as root"
   fi
 }
+
+# Searches all text in subversion logs for given string
+# Uses xqilla
+function _svngrep {
+  printf -v xqy '
+    let $separator := "------------------------------------------------------------------------"
+    return (
+      for $entry in //logentry[matches(.,"%s")]
+      return (
+        $separator
+      , concat(
+          "r", $entry/@revision," | "
+        , $entry/author," | "
+        , $entry/date/replace(.,"\..+","")
+        )
+      , "Changed paths:"
+      , for $path in $entry/paths/path
+        return concat(" ",$path/@action," ",$path)
+      , ""
+      , $entry/msg/text()
+      )
+    , $separator
+    )
+  ' $1
+  svn log --xml -v | xqilla -i /dev/stdin <(echo $xqy)
+}
+
+# Searches all text in subversion log msg for given string
+# Uses xsltproc
+function svngrep {
+  xsl='
+    <xsl:stylesheet
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      version="1.0">
+    <xsl:param name="matchString"/>
+    <xsl:output method="text"/>
+    <xsl:variable name="separator">------------------------------------------------------------------------</xsl:variable>
+    <xsl:variable name="period">.</xsl:variable>
+    <xsl:variable name="space"> </xsl:variable>
+
+    <xsl:template match="/">
+      <xsl:apply-templates select=".//logentry[contains(msg,$matchString)]"/>
+      <xsl:value-of select="$separator"/>
+    </xsl:template>
+
+    <xsl:template match="logentry">
+      <xsl:value-of select="$separator"/>
+      <xsl:text>&#10;</xsl:text>
+      <xsl:text>r</xsl:text>
+      <xsl:value-of select="@revision"/>
+      <xsl:text> | </xsl:text>
+      <xsl:value-of select="author"/>
+      <xsl:text> | </xsl:text>
+      <xsl:value-of select="substring-before(date,$period)"/>
+      <xsl:text>&#10;</xsl:text>
+      <xsl:text>Changed paths:</xsl:text>
+      <xsl:text>&#10;</xsl:text>
+      <xsl:for-each select="paths/path">
+        <xsl:value-of select="concat($space,@action,$space,.)"/>
+        <xsl:text>&#10;</xsl:text>
+      </xsl:for-each>
+      <xsl:text>&#10;</xsl:text>
+      <xsl:value-of select="msg"/>
+      <xsl:text>&#10;</xsl:text>
+    </xsl:template>
+
+    </xsl:stylesheet>
+    '
+  svn log -v --xml | xsltproc --stringparam matchString "$1" <(echo $xsl) /dev/stdin
+}
