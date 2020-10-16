@@ -128,7 +128,6 @@ function svngrep {
     <xsl:output method="text"/>
     <xsl:variable name="separator">------------------------------------------------------------------------</xsl:variable>
     <xsl:variable name="period">.</xsl:variable>
-    <xsl:variable name="space"> </xsl:variable>
 
     <xsl:template match="/">
       <xsl:apply-templates select=".//logentry[contains(msg,$matchString)]"/>
@@ -148,7 +147,10 @@ function svngrep {
       <xsl:text>Changed paths:</xsl:text>
       <xsl:text>&#10;</xsl:text>
       <xsl:for-each select="paths/path">
-        <xsl:value-of select="concat($space,@action,$space,.)"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="@action"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="."/>
         <xsl:text>&#10;</xsl:text>
       </xsl:for-each>
       <xsl:text>&#10;</xsl:text>
