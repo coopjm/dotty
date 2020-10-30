@@ -7,39 +7,39 @@ export PATH="$PATH:~/bin:."
 set -o vi
 alias a=alias
 
-a pd=pushd
-a pd2="pushd +2"
-a pd3="pushd +3"
-a pd4="pushd +4"
-a pd5="pushd +5"
-a pd6="pushd +6"
-a pd7="pushd +7"
-a pd8="pushd +8"
-a pd9="pushd +9"
-a pd10="pushd +10"
-a pd11="pushd +11"
-a pd12="pushd +12"
-a pd13="pushd +13"
-a pd14="pushd +14"
-a pd15="pushd +15"
-a pd16="pushd +16"
-a pd17="pushd +17"
-a pd18="pushd +18"
-a pd19="pushd +19"
+alias pd=pushd
+alias pd2="pushd +2"
+alias pd3="pushd +3"
+alias pd4="pushd +4"
+alias pd5="pushd +5"
+alias pd6="pushd +6"
+alias pd7="pushd +7"
+alias pd8="pushd +8"
+alias pd9="pushd +9"
+alias pd10="pushd +10"
+alias pd11="pushd +11"
+alias pd12="pushd +12"
+alias pd13="pushd +13"
+alias pd14="pushd +14"
+alias pd15="pushd +15"
+alias pd16="pushd +16"
+alias pd17="pushd +17"
+alias pd18="pushd +18"
+alias pd19="pushd +19"
 
-a d="dirs -v"
-a git-dotty-pull="pushd $HOME/.dotty > /dev/null; git pull; popd > /dev/null"
-a h=history
-a less="less -M"
-a ls="ls -F --color=auto"
-a md=mkdir
-a src="source ~/.bashrc"
-a urldecode='python -c "import urllib, sys; print urllib.unquote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
-a urlencode='python -c "import urllib, sys; print urllib.quote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
-a wget="wget --trust-server-names"
-a x="chmod a+x"
+alias d="dirs -v"
+alias git-dotty-pull="pushd $HOME/.dotty > /dev/null; git pull; popd > /dev/null"
+alias h=history
+alias less="less -M"
+alias ls="ls -F --color=auto"
+alias md=mkdir
+alias src="source ~/.bashrc"
+alias urldecode='python -c "import urllib, sys; print urllib.unquote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
+alias urlencode='python -c "import urllib, sys; print urllib.quote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
+alias wget="wget --trust-server-names"
+alias x="chmod a+x"
 
-a sudo="sudo "
+alias sudo="sudo "
 
 function xcat {
   #less -f $(for f in $*; do <(xmlstarlet fo $f); done)
