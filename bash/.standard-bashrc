@@ -165,7 +165,7 @@ function svngrep {
 
 # if CLASSPATH contains saxon jar then define saxon function
 if [[ ${CLASSPATH,,*} =~ saxon ]]; then
-  function saxon {
+  function mysaxon {
     opt=$1
     shift 1
     if [ "$opt" = "xslt" ]; then
@@ -174,7 +174,6 @@ if [[ ${CLASSPATH,,*} =~ saxon ]]; then
       java net.sf.saxon.Query $*
     else
       echo ""; echo "Usage: ${0##*/} [ xslt | xquery ]"; echo ""
-      exit 1
     fi
   }
 fi
