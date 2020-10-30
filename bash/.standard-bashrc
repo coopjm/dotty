@@ -173,7 +173,7 @@ if [[ ${CLASSPATH,,*} =~ saxon ]]; then
     elif [ "$opt" = "xquery" ]; then
       java net.sf.saxon.Query $*
     else
-      echo ""; echo "Usage: ${0##*/} [ xslt | xquery ]"; echo ""
+      echo ""; echo "Usage: $FUNCNAME [ xslt | xquery ]"; echo ""
     fi
   }
 fi
