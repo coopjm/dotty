@@ -27,6 +27,11 @@ alias pd17="pushd +17"
 alias pd18="pushd +18"
 alias pd19="pushd +19"
 
+alias mountcryfs="cryfs ~/nextcloud/safe/.cryfs ~/cryfs"
+alias umountcryfs="cryfs-umount ~/cryfs"
+alias mountencfs="encfs ~/nextcloud/safe/encfs ~/encfs"
+alias umountencfs="fusermount -u ~/encfs"
+
 alias d="dirs -v"
 alias git-dotty-pull="pushd $HOME/.dotty > /dev/null; git pull; popd > /dev/null"
 alias h=history
