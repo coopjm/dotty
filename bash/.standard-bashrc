@@ -36,6 +36,8 @@ alias md=mkdir
 alias src="source ~/.bashrc"
 alias urldecode='python -c "import urllib, sys; print urllib.unquote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
 alias urlencode='python -c "import urllib, sys; print urllib.quote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
+alias vi=vim
+alias view="vim -R"
 alias wget="wget --trust-server-names"
 alias x="chmod a+x"
 
