@@ -2,6 +2,13 @@ set nocompatible
 "set t_Co=256
 colorscheme murphy
 syntax on
+
+"filetype plugin on
+
+"""" Finding files
+set path+=**
+set wildmenu
+
 set cursorline
 hi cursorline cterm=NONE ctermbg=236
 

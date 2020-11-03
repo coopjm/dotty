@@ -27,6 +27,11 @@ alias pd17="pushd +17"
 alias pd18="pushd +18"
 alias pd19="pushd +19"
 
+alias mountcryfs="cryfs ~/nextcloud/safe/.cryfs ~/cryfs"
+alias umountcryfs="cryfs-umount ~/cryfs"
+alias mountencfs="encfs ~/nextcloud/safe/encfs ~/encfs"
+alias umountencfs="fusermount -u ~/encfs"
+
 alias d="dirs -v"
 alias git-dotty-pull="pushd $HOME/.dotty > /dev/null; git pull; popd > /dev/null"
 alias h=history
@@ -34,6 +39,7 @@ alias less="less -M"
 alias ls="ls -F --color=auto"
 alias md=mkdir
 alias src="source ~/.bashrc"
+alias tsize="tput cols; tput lines"
 alias urldecode='python -c "import urllib, sys; print urllib.unquote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
 alias urlencode='python -c "import urllib, sys; print urllib.quote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
 alias vi=vim
