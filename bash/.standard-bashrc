@@ -70,10 +70,10 @@ function xless {
   xcat $1 | less
 }
 function yless {
-  xcat $1 | less
+  ycat $1 | less
 }
 function jless {
-  xcat $1 | less
+  jcat $1 | less
 }
 function papiless {
   papicat $1 | less
