@@ -28,7 +28,7 @@ alias pd18="pushd +18"
 alias pd19="pushd +19"
 
 alias mountcryfs="cryfs ~/nextcloud/safe/.cryfs ~/cryfs"
-alias umountcryfs="cryfs-umount ~/cryfs"
+alias umountcryfs="cryfs-unmount ~/cryfs"
 alias mountencfs="encfs ~/nextcloud/safe/encfs ~/encfs"
 alias umountencfs="fusermount -u ~/encfs"
 
