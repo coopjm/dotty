@@ -47,7 +47,7 @@ alias view="vim -R"
 alias wget="wget --trust-server-names"
 alias x="chmod a+x"
 
-alias sudo="sudo "
+alias sudo="sudo -E "
 
 function xcat {
   #less -f $(for f in $*; do <(xmlstarlet fo $f); done)
