@@ -3,6 +3,7 @@
 #export LESS="-M"
 
 export PATH="$PATH:~/bin:."
+export EDITOR=/usr/bin/vi
 
 set -o vi
 alias a=alias
