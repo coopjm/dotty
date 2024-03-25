@@ -89,7 +89,7 @@ function ddmmyyy-to-yyyymmdd {
 }
 
 function killDetachedMosh {
-  pids=$(kill $(who | grep mosh | grep -v via | awk '{print $6}' | sed -r 's/[^0-9]//g'))
+  pids=$(kill $(who | grep "$USER" | grep mosh | grep -v via | awk '{print $6}' | sed -r 's/[^0-9]//g'))
 }
 
 function checkRoot {
