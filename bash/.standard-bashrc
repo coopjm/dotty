@@ -6,6 +6,8 @@ export PATH="$PATH:~/bin:."
 export EDITOR=/usr/bin/vi
 export GREP_COLORS='sl=48;5;236;97:cx=40;37:mt=48;5;186;30:fn=49;38;5;33:ln=49;38;5;154:bn=49;38;5;141:se=49;38;5;81';
 
+PYTHON=$(which python python2 python3 | head -1)
+
 set -o vi
 alias a=alias
 
@@ -42,8 +44,8 @@ alias ls="ls -F --color=auto"
 alias md=mkdir
 alias src="source ~/.bashrc"
 alias tsize="tput cols; tput lines"
-alias urldecode='python -c "import urllib, sys; print urllib.unquote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
-alias urlencode='python -c "import urllib, sys; print urllib.quote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
+alias urldecode='$PYTHON -c "import urllib, sys; print urllib.unquote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
+alias urlencode='$PYTHON -c "import urllib, sys; print urllib.quote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
 alias vi=vim
 alias view="vim -R"
 alias wget="wget --trust-server-names"
@@ -61,7 +63,7 @@ function ycat {
 }
 
 function jcat {
-  cat $1 | python -m json.tool
+  cat $1 | $PYTHON -m json.tool
 }
 
 function papicat {
