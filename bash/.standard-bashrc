@@ -63,7 +63,8 @@ function ycat {
 }
 
 function jcat {
-  cat $1 | $PYTHON -m json.tool
+#  cat $1 | $PYTHON -m json.tool
+  cat $1 | jq "."
 }
 
 function papicat {
