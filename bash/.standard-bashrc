@@ -6,7 +6,7 @@ export PATH="$PATH:~/bin:."
 export EDITOR=/usr/bin/vi
 export GREP_COLORS='sl=48;5;236;97:cx=40;37:mt=48;5;186;30:fn=49;38;5;33:ln=49;38;5;154:bn=49;38;5;141:se=49;38;5;81';
 
-PYTHON=$(which python python2 python3 | head -1)
+#PYTHON=$(which python python2 python3 | head -1)
 
 set -o vi
 alias a=alias
