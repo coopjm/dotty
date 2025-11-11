@@ -2,12 +2,15 @@
 #export LESS="-P %f.\: %bt.-%bB.\/%B.\: %lt.-%lb.\/%L"
 #export LESS="-M"
 
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
 export PATH="$PATH:~/bin:."
 export EDITOR=/usr/bin/vi
 export GREP_COLORS='sl=48;5;236;97:cx=40;37:mt=48;5;186;30:fn=49;38;5;33:ln=49;38;5;154:bn=49;38;5;141:se=49;38;5;81';
-
+#export TERM=xterm-256color
 export HISTCONTROL=erasedups
-
+export S_TIME_FORMAT=ISO
+export DF_BLOCK_SIZE=1G
 #PYTHON=$(which python python2 python3 | head -1)
 
 set -o vi
@@ -45,6 +48,7 @@ alias less="less -M"
 alias ls="ls -F --color=auto"
 alias md=mkdir
 alias src="source ~/.bashrc"
+alias esudo="sudo -E"
 alias tsize="tput cols; tput lines"
 alias urldecode='$PYTHON -c "import urllib, sys; print urllib.unquote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
 alias urlencode='$PYTHON -c "import urllib, sys; print urllib.quote_plus(sys.argv[1] if len(sys.argv) > 1 else sys.stdin.read()[0:-1])"'
@@ -54,6 +58,9 @@ alias wget="wget --trust-server-names"
 alias x="chmod a+x"
 
 which bat > /dev/null 2>&1 || (which batcat  > /dev/null 2>&1 && alias bat=batcat)
+
+## # Load Angular CLI autocompletion.
+## source <(ng completion script)
 
 #alias sudo="sudo -E "
 
