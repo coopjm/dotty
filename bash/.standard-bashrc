@@ -17,7 +17,7 @@ GREEN='\[\033[0;32m\]'   # Green for git branch
 RESET='\[\033[0m\]'      # Reset to default
 
 # Set PS1: User@Host (Blue Path) (Green Branch) $
-export PS1="${GREEN}\u@\h:${VIBRANT_BLUE}\w${RESET}${GREEN}\$(parse_git_branch)${RESET}\$ "
+export PS1="${GREEN}\u@\h:${VIBRANT_BLUE}\w${RESET}${GREEN}\$(git branch --show-current 2>/dev/null | sed 's/^/(/;s/$/)/')${RESET}\$ "
 
 export PATH="$PATH:~/bin:."
 export EDITOR=/usr/bin/vi
